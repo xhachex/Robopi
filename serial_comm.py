@@ -1,22 +1,30 @@
 import serial
 from time import sleep
 
-
-
-ser = serial.Serial('COM3', baudrate = 9600, timeout = 1)
+arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
 sleep(3)
 
-def getValues():
-  ser.write(b'g')
-  arduinoData = ser.readline().decode('ascii')
-  return arduinoData
+print("Starting!")
+
+#comando = input('Introducir un')
+
+def func_medir():
+    arduino.write(b'M')
+    print("sending...")
+    if(arduino.in_waiting > 0):
+        line = arduino.readline().decode('ascii')
+    print(line)
+
+try:
+    while True:
+        print(func_medir())
+        sleep(10)
 
 
-while(1):
-  userInput = input('Get data poing?')
-  
-  if userInput == 'y':
-    print(getValues())
- 
+except KeyboardInterrupt:
+    arduino.close() #Finalizamos la comunicacion
+    print("C'ya")
+    pass
 
-  
+
+
