@@ -14,15 +14,15 @@ def no()
     
         
 def yes()
-    print("Nop")
-    servo_pan(90)
+    print("Yes")
+    servo_tilt(90)
     sleep(0.1)
     for x in range(3)
-        servo_pan(70)
+        servo_tilt(70)
         sleep(0.1)
-        servo_pan(110)
+        servo_tilt(110)
         sleep(0.1)
-    servo_pan(90)
+    servo_tilt(90)
     sleep(0.1)
 
 def happy
