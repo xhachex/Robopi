@@ -5,7 +5,7 @@ left_wheel = Motor(forward=4, backward=14)
 right_wheel = Motor(forward=23, backward=24)
 
 
-def fullstop:
+def fullstop(0):
 	left_wheel.stop()
 	right_wheel.stop()
 	
